@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Star Rating</title>
+    <style>
+        .star {
+            font-size: 30px;
+            color: gray; 
+            cursor: pointer;
+        }
+        .star.gold {
+            color: gold; /* Gold color when selected */
+        }
+    </style>
+</head>
+<body>
+    <h2>Rate Us</h2>
+    <div id="star-rating">
+        <span class="star" onclick="updateRating(1)">&#9733;</span>
+        <span class="star" onclick="updateRating(2)">&#9733;</span>
+        <span class="star" onclick="updateRating(3)">&#9733;</span>
+        <span class="star" onclick="updateRating(4)">&#9733;</span>
+        <span class="star" onclick="updateRating(5)">&#9733;</span>
+    </div>
+
+    <script>
+        function updateRating(selectedRating) {
+            const stars = document.querySelectorAll('.star');
+            stars.forEach(star => {
+                star.classList.remove('gold');
+            });
+
+            // gold for selected stars
+            for (let i = 0; i < selectedRating; i++) {
+                stars[i].classList.add('gold');
+            }
+
+            setTimeout(function() {
+                alert(`Thank you for your rating of ${selectedRating} stars! \nYour feedback will be taken into consideration!!`);
+            }, 50); 
+        }
+    </script>
+</body>
+</html>
